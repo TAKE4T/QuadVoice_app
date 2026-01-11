@@ -1,0 +1,10 @@
+fastapi>=0.110.0
+uvicorn[standard]>=0.23.0
+langchain>=0.2.0
+langgraph>=0.0.63
+anthropic>=0.21.0
+supabase>=2.4.0
+pgvector>=0.2.4
+psycopg2-binary>=2.9.9
+python-dotenv>=1.0.1
+pydantic-settings>=2.2.1

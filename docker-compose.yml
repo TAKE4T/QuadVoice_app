@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  db:
+    image: pgvector/pgvector:pg16
+    container_name: quadvoice_db
+    environment:
+      POSTGRES_USER: quadvoice
+      POSTGRES_PASSWORD: quadvoice_password
+      POSTGRES_DB: quadvoice
+    ports:
+      - "5432:5432"
+    volumes:
+      - db_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $${POSTGRES_USER} -d $${POSTGRES_DB}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    restart: unless-stopped
+volumes:
+  db_data:
